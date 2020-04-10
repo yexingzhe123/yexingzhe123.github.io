@@ -1,0 +1,160 @@
+---
+layout: default
+title: 博客
+---
+
+<hr/>
+<div class="drop-down">
+  <i style="float:left; font-size:40px;" class="icon iconfont">&#xe61b;</i><input style="float:left; font-size:15px; width:100px; height:50px;" id="inp" type="button" value="归档" />
+</div>
+
+<div style="width:100%; height:50px;"></div>
+
+    {% for tag in site.tags %}
+        <a  name="bqbj" class="widget_ui_tags" style="float:left;" href="/blog/{{ tag[0] }}/"><i style=" font-size:20px;" class="icon iconfont">&#xe614;</i>{{ tag[0] }} <i>({{ tag[1].size }})</i></a>
+    {% endfor %}
+
+<div style="width:100%; height:100px;"></div>
+
+<div id="divx" class="wenzibeijin" style="display:none;">
+<div style="opacity:1;">
+<ul>
+  {% for post in site.posts %}
+
+    {% unless post.next %}
+      <h2>{{ post.date | date: '%Y年' }}</h2>
+    {% else %}
+      {% capture year %}{{ post.date | date: '%Y' }}{% endcapture %}
+      {% capture nyear %}{{ post.next.date | date: '%Y' }}{% endcapture %}
+      {% if year != nyear %}
+        <h2>{{ post.date | date: '%Y年' }}</h2>
+      {% endif %}
+    {% endunless %}
+
+    <li>{{ post.date | date:"%Y年%m月%d日：" }} <a href="{{ post.url }}">{{ post.title }}</a></li>
+  {% endfor %}
+</ul>
+</div>
+</div>
+
+
+<div id="divy" class="posts" >
+
+  {% for post in paginator.posts %}
+
+  <div class="post">
+<div class="wenzibeijin">
+<div style="opacity:1;">
+    <h1 class="post-title">
+      {{ post.title }}
+    </h1>
+<!--<span>post.date | date_to_string</span>-->
+    <span class="post-date">{{ post.date | date:"%Y年%m月%d日" }}</span>
+    {{ post.excerpt }}
+<a class="yueduquanwen" style="text-decoration: none;" href="../{{ post.url }}">阅读全文>></a>
+</div>
+    </div>
+ <div style="width:100%; height:25px;"></div>
+  </div>
+
+  {% endfor %}
+
+
+
+
+<!--翻页-->
+
+{% for count in (1..paginator.total_pages) %}
+{% endfor %}
+
+<div class="pagelist">
+<a title="Total record">
+ <b>750</b>
+</a>
+
+<input type="text" style="width:150px;" id="num" value="输入页码" onfocus="javascript:if(this.value=='输入页码')this.value='';" onblur="javascript:if(this.value=='')this.value='输入页码';"/>
+<input type="button" value="确认" onclick="jump()" />
+<br/>
+
+{% if paginator.previous_page %}
+
+<a href="/blog/">首页</a>
+<a href="{{ paginator.previous_page_path }}">上一页</a>
+
+{% else %}
+
+{% endif %}
+
+<b>{{ paginator.page }}|{{ paginator.total_pages }}</b>
+
+
+{% if paginator.next_page %}
+
+<a href="{{ paginator.next_page_path }}">下一页</a>
+<a href="/blog/page{{ paginator.total_pages }}">尾页</a>
+
+{% else %}
+
+{% endif %}
+
+</div>
+
+<script  type="text/javascript">
+ function jump()
+    {
+	var x=document.getElementById("num").value;
+        if(x == '1'){
+         top.location='/blog/';
+        }
+        else if(!(/(^[1-9]\d*$)/.test(x))) {
+        alert("输入错误！请输入 1-{{ paginator.total_pages }}之间的数.");
+        }
+        else if(x > {{ paginator.total_pages }}) {
+        alert("输入超出最大页码！请输入 1-{{ paginator.total_pages }}之间的数.");
+        }
+        else{
+        top.location='/blog/page'+document.getElementById("num").value;
+        }
+    }
+
+</script>
+
+<script> 
+/*随机颜色rgb*/
+//var obj = document.getElementById("#bq").document.getElementsByTagName("a");
+var obj = document.getElementsByName("bqbj");
+for(i=0;i<obj.length;i++) 
+{ 
+var str = "0123456789abcdef"; 
+var t = "#"; 
+for(j=0;j<6;j++) 
+{t = t+ str.charAt(Math.random()*str.length);} 
+obj[i].style.backgroundColor=t;  
+} 
+</script> 
+
+<script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+<script>
+$(document).ready(function () {
+  $(".drop-down input").click(function () {
+    var div1 = $('#divx');
+    var div2 = $('#divy');
+    var div3 = $('#divz');
+    var inp = $('#inp');
+    if (div1.is(':hidden')) {
+      div1.show();
+      div2.hide();
+      div3.hide();
+      //$('input[type=button]')inp.val('释放');
+      inp.val('释放');
+    }
+    else {
+      div1.hide();
+      div2.show();
+      div3.hide();
+      //$('input[type=button]').val('归档');
+      inp.val('归档');
+    }
+  });
+})  
+</script>

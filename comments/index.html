@@ -1,0 +1,23 @@
+---
+layout: default1
+title: 留言板
+---
+
+<div class="liuyan" >
+<div class='vcomments'/></div>
+</div>
+<script>
+  window.onload = function(){
+  new Valine({
+    el: '.vcomments',
+    appId:'Q86dAmcuuybv7lN1OEbw36dX-gzGzoHsz',
+    appKey:'5Wily2OpU53XFfs1uUpp8zlr',
+    notify:true,
+    verify:true,
+    avatar:'mp',
+    placeholder: '◔ ‸◔？留下点什么呢？'
+  })
+  }
+</script>
+
+<script src='https://cdnjs.loli.net/ajax/libs/jquery/3.2.1/jquery.min.js'/>
