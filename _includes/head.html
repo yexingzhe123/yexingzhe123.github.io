@@ -1,0 +1,212 @@
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta charset="UTF-8">
+  <meta name="author" content="yexingzhe"> 
+  <meta name="keywords" content="yexingzhe,blog,Blog,博客，yexingzhe's Blog">
+  <meta name="description" content="Spirit cannot replace ability"> 
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1,user-scalable=yes,,shrink-to-fit=no">
+  
+
+  <title>
+    {% if page.title == 首页 %}
+      {{ site.title }} &middot; {{ site.tagline }}
+    {% else %}
+      {{ page.title }} &middot; {{ site.tagline }}
+    {% endif %}
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="{{ site.baseurl }}/public/css/poole.css">
+  <link rel="stylesheet" href="{{ site.baseurl }}/public/css/syntax.css">
+  <link rel="stylesheet" href="{{ site.baseurl }}/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="mi" sizes="144x144" href="{{ site.baseurl }}/public/mi.jpg">
+  <link rel="shortcut icon" href="{{ site.baseurl }}/public/favicon1.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+  
+  <!--font-->
+  <link rel="stylesheet" href="{{ site.baseurl }}/font/fontface/demo.css">
+  <link rel="stylesheet" href="{{ site.baseurl }}/font/fontface/iconfont.css">
+  <script src="{{ site.baseurl }}/font/fontface/iconfont.js"></script>
+  
+  <!--评论系统-->
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+  <script src='//cdn1.lncld.net/static/js/3.0.4/av-min.js'></script>
+
+
+  <!--插图-->
+  <style>
+  .effect {
+    margin: 1rem;
+        margin-top: 1rem;
+        margin-right: 1rem;
+        margin-bottom: 1rem;
+        margin-left: 1rem;
+    perspective: 900px;
+}
+    .effect-info {
+    text-align: center;
+    backface-visibility: hidden;
+    position: absolute;
+    top: 0;
+    transform-style: preserve-3d;
+}
+    .effect-right_to_left .effect-img {
+    transform-origin: 0% 50%;
+}
+    .effect-img {
+    z-index: 11;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: all 0.5s ease-in-out;
+        transition-property: all;
+        transition-duration: 0.5s;
+        transition-timing-function: ease-in-out;
+        transition-delay: 0s;
+}
+    img {
+    display: inline-block;
+    margin: 0;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+        margin-left: 0px;
+}
+    * {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+    img {
+    display: block;
+    max-width: 100%;
+    margin: 0 0 1rem;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 1rem;
+        margin-left: 0px;
+    border-radius: 5px;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+        border-bottom-left-radius: 5px;
+}
+    * {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+    .effect-info {
+    text-align: center;
+    backface-visibility: hidden;
+    position: absolute;
+    top: 0;
+    transform-style: preserve-3d;
+}
+    * {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+    .effect-right_to_left:hover .effect-img {
+    transform: rotate3d(0, 1, 0, -180deg);
+  }
+    </style>
+
+  <!---翻页-->
+<style>
+.pagelist {
+    text-align: center;
+    color: #666;
+    width: 100%;
+    clear: both;
+    margin: 0 0 10px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 10px;
+        margin-left: 0px;
+}
+
+.pagelist a:nth-child(1) {
+    display: none;
+}
+
+.pagelist a {
+    color: #666;
+    margin: 0 5px 10px;
+        margin-top: 0px;
+        margin-right: 5px;
+        margin-bottom: 10px;
+        margin-left: 5px;
+    padding: 5px 10px;
+        padding-top: 5px;
+        padding-right: 10px;
+        padding-bottom: 5px;
+        padding-left: 10px;
+    background: #F7F7F7;
+        background-color: rgb(247, 247, 247);
+        background-position-x: 0%;
+        background-position-y: 0%;
+        background-repeat: repeat;
+        background-attachment: scroll;
+        background-image: none;
+        background-size: auto;
+        background-origin: padding-box;
+        background-clip: border-box;
+    display: inline-block;
+}
+
+a {
+    text-decoration: none;
+        text-decoration-line: none;
+        text-decoration-style: solid;
+        text-decoration-color: currentcolor;
+        text-decoration-thickness: auto;
+    color: #000;
+}
+
+.pagelist > b {
+    padding: 5px 10px;
+        padding-top: 5px;
+        padding-right: 10px;
+        padding-bottom: 5px;
+        padding-left: 10px;
+}
+.pagelist a:hover, .pagelist > b {
+    color: #3690cf;
+    color: #FFF;
+    background: #1C2327;
+        background-color: rgb(28, 35, 39);
+        background-position-x: 0%;
+        background-position-y: 0%;
+        background-repeat: repeat;
+        background-attachment: scroll;
+        background-image: none;
+        background-size: auto;
+        background-origin: padding-box;
+        background-clip: border-box;
+}
+</style>
+
+  <script>
+    var Paul_Pio = function (prop) {
+    var current = {
+        idol: 0,
+        menu: document.querySelector(".pio-container .pio-action"),
+        canvas: document.getElementById("pio"),
+        body: document.getElementsByClassName("pio-container")[0],
+        root: document.location.protocol +'//' + document.location.hostname +'/'
+    };
+      function() {
+  modules.render(e.text)
+}
+  </script>
+</head>

@@ -1,0 +1,90 @@
+<!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar" style="background-image:url({{ site.baseurl }}/public/xingkong.jpg)">
+  <div class="sidebar-item">
+    <!--<p>{{ site.description }}</p>-->
+    <div class="effect effect-right_to_left">
+      <img class="effect-img" src="{{ site.baseurl }}/public/head.jpg" alt="img">
+      <div class="effect-info">
+      世上仍有大量迷人的事情等待解决><br/>
+      同样的问题不应被重复处理两次<br/>
+      拒绝重复和沉闷的事情<br/>
+      自由万岁<br/>
+      精神不能代替能力<br/>
+      <iframe
+              src="https://music.163.com/outchain/player?type=2&id=1428101618&auto=0&height=32"
+              width=100%
+              height=52
+              frameborder="no"
+              border="0"
+              marginwidth="0"
+              marginheight="0"
+              >
+      </iframe>
+      <a target="_blank" title="因兼容问题，QQ邮箱从这╮(๑•́ ₃•̀๑)╭" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=bx9WXl1WXllYXV8vCQAXAg4GA0EMAAI" style="text-decoration:none;"><img src="http://rescdn.qqmail.com/zh_CN/htmledition/images/function/qm_open/ico_mailme_12.png"/></a>
+      </div>
+    </div>
+      <div style="width:50px; height:50px; float:left;"><a style="text-decoration: none;" target="_blank" href="mailto:yexingzhe123@outlook.com?cc=2419683103@qq.com&bcc=2419683103@qq.com&subject=this is title&body=this is body" title="邮箱" class="icon_lists dib-box dib"><i class="icon iconfont">&#xe73f;</i></a></div>
+      <div style="width:50px; height:50px; float:left;"><a style="text-decoration: none;" target="_blank" href="https://github.com/yexingzhe123" title="Github" class="icon_lists dib-box dib "><i class="icon iconfont">&#xe7e8;</i></a></div>
+      <div style="width:50px; height:50px; float:left;"><a style="text-decoration: none;" target="_blank" href="https://weibo.com/7368012082/profile?topnav=1&wvr=6&is_all=1" title="微博" class="icon_lists dib-box dib "><i class="icon iconfont">&#xe622;</i></a></div>
+      <div style="width:50px; height:50px; float:left;"><a style="text-decoration: none;" target="_blank" href="https://www.zhihu.com/people/chase-30-49" title="知乎" class="icon_lists dib-box dib "><i class="icon iconfont">&#xe606;</i></a></div>
+    <div></div>
+  </div>
+
+  <div style="width:100%; height:100px;"></div>
+
+<div>
+  <!-- HTML elements for search -->
+<i style="font-size:20px;" class="icon iconfont">&#xe610;</i><input style=" width:200px; height:40px;" type="text" id="search-input" placeholder="搜索">
+<p id="results-container"></p>
+</div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item{% if page.url == site.baseurl %} active{% endif %}" href="{{ site.baseurl }}/"><span class="icon iconfont">&#xe61e;</span>&nbsp&nbsp&nbsp首页</a>
+
+    {% comment %}
+      The code below dynamically generates a sidebar nav of pages with
+      `layout: page` in the front-matter. See readme for usage.
+    {% endcomment %}
+
+    <a class="sidebar-nav-item" href="/blog/"><span class="icon iconfont">&#xe60c;</span>&nbsp&nbsp&nbsp博客</a>
+    <a class="sidebar-nav-item" href="/comments/"><span class="icon iconfont">&#xe69f;</span>&nbsp&nbsp&nbsp留言</a>
+    <a class="sidebar-nav-item" href="/merger/"><span class="icon iconfont">&#xe638;</span>&nbsp&nbsp&nbsp打赏</a>
+    {% assign pages_list = site.pages | sort:"url" %}
+    {% for node in pages_list %}
+      {% if node.title != null %}
+        {% if node.layout == "page" %}
+          <!--<a class="sidebar-nav-item{% if page.url == node.url %} active{% endif %}" href="{{ node.url }}">{{ node.title }}</a>-->
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+
+    
+    <!--<a class="sidebar-nav-item" href="{{ site.github.repo }}">GitHub project</a>-->
+    <!--<span class="sidebar-nav-item">Currently v{{ site.version }}</span>-->
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; {{ site.time | date: '%Y' }}. All rights reserved.<br/>
+      <a class="" href="/about/">jekyll-theme-yexingzhe</a>
+    </p>
+  </div>
+</div>
+
+<!--搜索功能-->
+<!-- or without installing anything -->
+<script src="/js/simple-jekyll-search.min.js"></script>
+<script type="text/javascript">
+var sjs = SimpleJekyllSearch({
+  searchInput: document.getElementById('search-input'),
+  resultsContainer: document.getElementById('results-container'),
+  json: '/search.json'
+})
+
+var sjs = SimpleJekyllSearch({ ...options })
+sjs.search('Hello')
+</script>
