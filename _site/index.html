@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta charset="UTF-8">
+  <meta name="author" content="yexingzhe"> 
+  <meta name="keywords" content="yexingzhe,blog,Blog,博客，yexingzhe's Blog">
+  <meta name="description" content="Spirit cannot replace ability"> 
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1,user-scalable=yes,,shrink-to-fit=no">
+  
+
+  <title>
+    
+      首页 &middot; yexingzhe
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="mi" sizes="144x144" href="/public/mi.jpg">
+  <link rel="shortcut icon" href="/public/favicon1.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+  
+  <!--font-->
+  <link rel="stylesheet" href="/font/fontface/demo.css">
+  <link rel="stylesheet" href="/font/fontface/iconfont.css">
+  <script src="/font/fontface/iconfont.js"></script>
+  
+  <!--评论系统-->
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+  <script src='//cdn1.lncld.net/static/js/3.0.4/av-min.js'></script>
+
+
+  <!--插图-->
+  <style>
+  .effect {
+    margin: 1rem;
+        margin-top: 1rem;
+        margin-right: 1rem;
+        margin-bottom: 1rem;
+        margin-left: 1rem;
+    perspective: 900px;
+}
+    .effect-info {
+    text-align: center;
+    backface-visibility: hidden;
+    position: absolute;
+    top: 0;
+    transform-style: preserve-3d;
+}
+    .effect-right_to_left .effect-img {
+    transform-origin: 0% 50%;
+}
+    .effect-img {
+    z-index: 11;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: all 0.5s ease-in-out;
+        transition-property: all;
+        transition-duration: 0.5s;
+        transition-timing-function: ease-in-out;
+        transition-delay: 0s;
+}
+    img {
+    display: inline-block;
+    margin: 0;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+        margin-left: 0px;
+}
+    * {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+    img {
+    display: block;
+    max-width: 100%;
+    margin: 0 0 1rem;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 1rem;
+        margin-left: 0px;
+    border-radius: 5px;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+        border-bottom-left-radius: 5px;
+}
+    * {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+    .effect-info {
+    text-align: center;
+    backface-visibility: hidden;
+    position: absolute;
+    top: 0;
+    transform-style: preserve-3d;
+}
+    * {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+    .effect-right_to_left:hover .effect-img {
+    transform: rotate3d(0, 1, 0, -180deg);
+  }
+    </style>
+
+  <!---翻页-->
+<style>
+.pagelist {
+    text-align: center;
+    color: #666;
+    width: 100%;
+    clear: both;
+    margin: 0 0 10px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 10px;
+        margin-left: 0px;
+}
+
+.pagelist a:nth-child(1) {
+    display: none;
+}
+
+.pagelist a {
+    color: #666;
+    margin: 0 5px 10px;
+        margin-top: 0px;
+        margin-right: 5px;
+        margin-bottom: 10px;
+        margin-left: 5px;
+    padding: 5px 10px;
+        padding-top: 5px;
+        padding-right: 10px;
+        padding-bottom: 5px;
+        padding-left: 10px;
+    background: #F7F7F7;
+        background-color: rgb(247, 247, 247);
+        background-position-x: 0%;
+        background-position-y: 0%;
+        background-repeat: repeat;
+        background-attachment: scroll;
+        background-image: none;
+        background-size: auto;
+        background-origin: padding-box;
+        background-clip: border-box;
+    display: inline-block;
+}
+
+a {
+    text-decoration: none;
+        text-decoration-line: none;
+        text-decoration-style: solid;
+        text-decoration-color: currentcolor;
+        text-decoration-thickness: auto;
+    color: #000;
+}
+
+.pagelist > b {
+    padding: 5px 10px;
+        padding-top: 5px;
+        padding-right: 10px;
+        padding-bottom: 5px;
+        padding-left: 10px;
+}
+.pagelist a:hover, .pagelist > b {
+    color: #3690cf;
+    color: #FFF;
+    background: #1C2327;
+        background-color: rgb(28, 35, 39);
+        background-position-x: 0%;
+        background-position-y: 0%;
+        background-repeat: repeat;
+        background-attachment: scroll;
+        background-image: none;
+        background-size: auto;
+        background-origin: padding-box;
+        background-clip: border-box;
+}
+</style>
+
+  <script>
+    var Paul_Pio = function (prop) {
+    var current = {
+        idol: 0,
+        menu: document.querySelector(".pio-container .pio-action"),
+        canvas: document.getElementById("pio"),
+        body: document.getElementsByClassName("pio-container")[0],
+        root: document.location.protocol +'//' + document.location.hostname +'/'
+    };
+      function() {
+  modules.render(e.text)
+}
+  </script>
+</head>
+
+
+  <body  class="htbj">
+    
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar" style="background-image:url(/public/xingkong.jpg)">
+  <div class="sidebar-item">
+    <!--<p></p>-->
+    <div class="effect effect-right_to_left">
+      <img class="effect-img" src="/public/head.jpg" alt="img">
+      <div class="effect-info">
+      世上仍有大量迷人的事情等待解决><br/>
+      同样的问题不应被重复处理两次<br/>
+      拒绝重复和沉闷的事情<br/>
+      自由万岁<br/>
+      精神不能代替能力<br/>
+      <iframe
+              src="https://music.163.com/outchain/player?type=2&id=1428101618&auto=0&height=32"
+              width=100%
+              height=52
+              frameborder="no"
+              border="0"
+              marginwidth="0"
+              marginheight="0"
+              >
+      </iframe>
+      <a target="_blank" title="因兼容问题，QQ邮箱从这╮(๑•́ ₃•̀๑)╭" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=bx9WXl1WXllYXV8vCQAXAg4GA0EMAAI" style="text-decoration:none;"><img src="http://rescdn.qqmail.com/zh_CN/htmledition/images/function/qm_open/ico_mailme_12.png"/></a>
+      </div>
+    </div>
+      <div style="width:50px; height:50px; float:left;"><a style="text-decoration: none;" target="_blank" href="mailto:yexingzhe123@outlook.com?cc=2419683103@qq.com&bcc=2419683103@qq.com&subject=this is title&body=this is body" title="邮箱" class="icon_lists dib-box dib"><i class="icon iconfont">&#xe73f;</i></a></div>
+      <div style="width:50px; height:50px; float:left;"><a style="text-decoration: none;" target="_blank" href="https://github.com/yexingzhe123" title="Github" class="icon_lists dib-box dib "><i class="icon iconfont">&#xe7e8;</i></a></div>
+      <div style="width:50px; height:50px; float:left;"><a style="text-decoration: none;" target="_blank" href="https://weibo.com/7368012082/profile?topnav=1&wvr=6&is_all=1" title="微博" class="icon_lists dib-box dib "><i class="icon iconfont">&#xe622;</i></a></div>
+      <div style="width:50px; height:50px; float:left;"><a style="text-decoration: none;" target="_blank" href="https://www.zhihu.com/people/chase-30-49" title="知乎" class="icon_lists dib-box dib "><i class="icon iconfont">&#xe606;</i></a></div>
+    <div></div>
+  </div>
+
+  <div style="width:100%; height:100px;"></div>
+
+<div>
+  <!-- HTML elements for search -->
+<i style="font-size:20px;" class="icon iconfont">&#xe610;</i><input style=" width:200px; height:40px;" type="text" id="search-input" placeholder="搜索">
+<p id="results-container"></p>
+</div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/"><span class="icon iconfont">&#xe61e;</span>&nbsp&nbsp&nbsp首页</a>
+
+    
+
+    <a class="sidebar-nav-item" href="/blog/"><span class="icon iconfont">&#xe60c;</span>&nbsp&nbsp&nbsp博客</a>
+    <a class="sidebar-nav-item" href="/comments/"><span class="icon iconfont">&#xe69f;</span>&nbsp&nbsp&nbsp留言</a>
+    <a class="sidebar-nav-item" href="/merger/"><span class="icon iconfont">&#xe638;</span>&nbsp&nbsp&nbsp打赏</a>
+    
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <!--<a class="sidebar-nav-item" href="/about.html">About</a>-->
+        
+      
+    
+      
+        
+      
+    
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+    
+
+    
+    <!--<a class="sidebar-nav-item" href="">GitHub project</a>-->
+    <!--<span class="sidebar-nav-item">Currently v1.0.0</span>-->
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2020. All rights reserved.<br/>
+      <a class="" href="/about/">jekyll-theme-yexingzhe</a>
+    </p>
+  </div>
+</div>
+
+<!--搜索功能-->
+<!-- or without installing anything -->
+<script src="/js/simple-jekyll-search.min.js"></script>
+<script type="text/javascript">
+var sjs = SimpleJekyllSearch({
+  searchInput: document.getElementById('search-input'),
+  resultsContainer: document.getElementById('results-container'),
+  json: '/search.json'
+})
+
+var sjs = SimpleJekyllSearch({ ...options })
+sjs.search('Hello')
+</script>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <!--<small></small>-->
+            首页&nbsp;&nbsp;
+            <small><a href="/" title="Home">yexingzhe</a></small>
+          </h3>   
+        </div>
+      </div>
+
+      
+
+
+      <div class="container content">
+        <div class="posts">
+<h1 class="chushi"><p style="writing-mode : tb-rl ;">真正的强者,总与孤独相伴,因为无人能懂</p></h1>
+</div>
+
+<!--<div class="pagination">
+  
+    <span class="pagination-item older">后退</span>
+  
+  
+    <span class="pagination-item newer">前进</span>
+  
+</div>-->
+
+
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+      
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+
+<script>
+/**
+ * Copyright (c) 2016 hustcc
+ * License: MIT
+ * Version: v1.0.1
+ * GitHub: https://github.com/hustcc/canvas-nest.js
+**/
+!
+function() {
+    function n(n, e, t) {
+        return n.getAttribute(e) || t
+    }
+    function e(n) {
+        return document.getElementsByTagName(n)
+    }
+    function t() {
+        var t = e("script"),
+        o = t.length,
+        i = t[o - 1];
+        return {
+            l: o,
+            z: n(i, "zIndex", -1),
+            o: n(i, "opacity", 0.7),
+            c: n(i, "color", "0,0,0"),
+            n: n(i, "count", 150)
+        }
+    }
+    function o() {
+        a = m.width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth,
+        c = m.height = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight
+    }
+    function i() {
+        r.clearRect(0, 0, a, c);
+        var n, e, t, o, m, l;
+        s.forEach(function(i, x) {
+            for (i.x += i.xa, i.y += i.ya, i.xa *= i.x > a || i.x < 0 ? -1 : 1, i.ya *= i.y > c || i.y < 0 ? -1 : 1, r.fillRect(i.x - .5, i.y - .5, 1, 1), e = x + 1; e < u.length; e++) n = u[e],
+            null !== n.x && null !== n.y && (o = i.x - n.x, m = i.y - n.y, l = o * o + m * m, l < n.max && (n === y && l >= n.max / 2 && (i.x -= .03 * o, i.y -= .03 * m), t = (n.max - l) / n.max, r.beginPath(), r.lineWidth = t / 2, r.strokeStyle = "rgba(" + d.c + "," + (t + .2) + ")", r.moveTo(i.x, i.y), r.lineTo(n.x, n.y), r.stroke()))
+        }),
+        x(i)
+    }
+    var a, c, u, m = document.createElement("canvas"),
+    d = t(),
+    l = "c_n" + d.l,
+    r = m.getContext("2d"),
+    x = window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame ||
+    function(n) {
+        window.setTimeout(n, 1e3 / 45)
+    },
+    w = Math.random,
+    y = {
+        x: null,
+        y: null,
+        max: 2e4
+    };
+    m.id = l,
+    m.style.cssText = "position:fixed;top:0;left:0;z-index:" + d.z + ";opacity:" + d.o,
+    e("body")[0].appendChild(m),
+    o(),
+    window.onresize = o,
+    window.onmousemove = function(n) {
+        n = n || window.event,
+        y.x = n.clientX,
+        y.y = n.clientY
+    },
+    window.onmouseout = function() {
+        y.x = null,
+        y.y = null
+    };
+    for (var s = [], f = 0; d.n > f; f++) {
+        var h = w() * a,
+        g = w() * c,
+        v = 2 * w() - 1,
+        p = 2 * w() - 1;
+        s.push({
+            x: h,
+            y: g,
+            xa: v,
+            ya: p,
+            max: 6e3
+        })
+    }
+    u = s.concat([y]),
+    setTimeout(function() {
+        i()
+    },
+    100)
+} ();
+</script>
+  </body>
+</html>
