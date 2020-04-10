@@ -1,0 +1,33 @@
+# Permalinks
+#
+# Use of `relative_permalinks` ensures post links from the index work properly.
+#permalink: pretty
+#relative_permalinks: true
+
+# Setup
+title: ''
+tagline: yexingzhe
+#description:
+#url: www.zpdbk.com
+#baseurl: "/"
+gems: [jekyll-paginate]
+plugins: [jekyll-paginate]
+#gem 'jekyll-paginate', group: :jekyll_plugins
+paginate: 5
+#paginatepath: ['topics/study/page/:num','topics/life/page/:num']
+paginate_path: "blog/page:num"
+
+
+#npm install simple-jekyll-search
+gems: [simple-jekyll-search]
+
+
+
+# About/contact
+author: ''
+name: yexingzhe
+url: ""
+email: yexingzhe123@outlook.com
+
+# Custom vars
+version: 1.0.0
