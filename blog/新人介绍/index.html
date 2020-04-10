@@ -1,0 +1,49 @@
+---
+layout: tag
+title: 标签
+---
+
+<h3 class="fanhui"><a style="text-decoration: none;" href="/blog/">返回</a></h3>
+
+<div class="drop-down" >
+    {% for tag in site.tags %}
+        <a  name="bqbj" class="widget_ui_tags" style="float:left;" href="/blog/{{ tag[0] }}/"><i style=" font-size:20px;" class="icon iconfont">&#xe614;</i>{{ tag[0] }} <i>({{ tag[1].size }})</i></a>
+    {% endfor %}
+</div>
+
+<div style="width:100%; height:100px;"></div>
+
+<!--标签-->
+
+    {% for tag in site.tags %}
+    {% if tag[0] == '资源' %}
+    <!--<div id="divz{% decrement variable %}"></div>-->
+    <!--<i style="float:left; background-color:#152364;" class="listing-seperator" id="{{ tag[0] }}">{{ tag[0] }}</i>-->
+    {% for post in tag[1] %}
+    <div class="a_css" style="float:left;">
+        <a  href="{{ post.url }}" title="{{ post.title }}"><img style="width:300px; height:100px;" src="/tag-image/xinrenjieshao.jpg"/></a>
+
+       {{ post.title }}
+        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+    </div>
+   <div style="float:left; width:50px;">&nbsp;</div>
+    {% endfor %}
+    {% endif %}
+{% endfor %}
+
+
+<!--标签-->
+
+<script> 
+/*随机颜色rgb*/
+//var obj = document.getElementById("#bq").document.getElementsByTagName("a");
+var obj = document.getElementsByName("bqbj");
+for(i=0;i<obj.length;i++) 
+{ 
+var str = "0123456789abcdef"; 
+var t = "#"; 
+for(j=0;j<6;j++) 
+{t = t+ str.charAt(Math.random()*str.length);} 
+obj[i].style.backgroundColor=t;  
+} 
+</script> 
