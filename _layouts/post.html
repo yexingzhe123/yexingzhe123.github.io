@@ -1,0 +1,38 @@
+---
+layout: default
+---
+
+<div class="post wenzibeijin">
+  <h1 class="post-title">{{ page.title }}</h1>
+  <span class="post-date">{{ page.date | date_to_string }}</span>
+  {{ content }}
+</div>
+
+<div style="float:left; width=50%;"></div>
+<center><a  style="text-aline:center; text-decoration: none;" href="/merger/"><span style="font-size:30px;" class="icon iconfont">&#xe638;</span>&nbsp&nbsp&nbsp打赏</a></center>
+
+
+  <div style="height:100px; width=100%;"></div>
+	<div class="liuyan" >
+	<div class='vcomments'/></div>
+	</div>
+
+
+<h3 class="fanhui"><a style="text-decoration: none;" href="/blog/">返回</a></h3>
+
+
+<script>
+  window.onload = function(){
+  new Valine({
+    el: '.vcomments',
+    appId:'Q86dAmcuuybv7lN1OEbw36dX-gzGzoHsz',
+    appKey:'5Wily2OpU53XFfs1uUpp8zlr',
+    notify:true,
+    verify:true,
+    avatar:'mp',
+    placeholder: '◔ ‸◔？留下点什么呢？'
+  })
+  }
+</script>
+
+<script src='https://cdnjs.loli.net/ajax/libs/jquery/3.2.1/jquery.min.js'/>
