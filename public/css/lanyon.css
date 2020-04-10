@@ -51,7 +51,21 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: -.025rem;
 }
 
+.a_css {
+    margin-right: 0 !important;
+    color: #525f7f;
+    text-transform: none !important;
+}
 
+.a_css:hover{
+  font-weight: bold;
+color: #42b983;
+text-decoration: underline;
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+    text-decoration-color: currentcolor;
+    text-decoration-thickness: auto;
+}
 /*
  * Wrapper
  *
