@@ -35,26 +35,26 @@ document.ready(
     () => {
         var _Blog = window._Blog || {};
         const currentTheme = window.localStorage && window.localStorage.getItem('theme');
-        const isDark = currentTheme === 'dark';
+        const isDark = currentTheme === '黑夜';
         const pagebody = document.getElementsByTagName('body')[0]
         if (isDark) {
             document.getElementById("switch_default").checked = true;
             // mobile
-            document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            document.getElementById("mobile-toggle-theme").innerText = "· 黑夜"
         } else {
             document.getElementById("switch_default").checked = false;
             // mobile
-            document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            document.getElementById("mobile-toggle-theme").innerText = "· 黑夜"
         }
         _Blog.toggleTheme = function () {
             if (isDark) {
                 pagebody.classList.add('dark-theme');
                 // mobile
-                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+                document.getElementById("mobile-toggle-theme").innerText = "· 黑夜"
             } else {
                 pagebody.classList.remove('dark-theme');
                 // mobile
-                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+                document.getElementById("mobile-toggle-theme").innerText = "· 光亮"
             }
             document.getElementsByClassName('toggleBtn')[0].addEventListener('click', () => {
                 if (pagebody.classList.contains('dark-theme')) {
@@ -63,22 +63,22 @@ document.ready(
                     pagebody.classList.add('dark-theme');
                 }
                 window.localStorage &&
-                window.localStorage.setItem('theme', document.body.classList.contains('dark-theme') ? 'dark' : 'light',)
+                window.localStorage.setItem('theme', document.body.classList.contains('dark-theme') ? '黑夜' : '光亮',)
             })
             // moblie
             document.getElementById('mobile-toggle-theme').addEventListener('click', () => {
                 if (pagebody.classList.contains('dark-theme')) {
                     pagebody.classList.remove('dark-theme');
                     // mobile
-                    document.getElementById("mobile-toggle-theme").innerText = "· Light"
+                    document.getElementById("mobile-toggle-theme").innerText = "· 光亮"
 
                 } else {
                     pagebody.classList.add('dark-theme');
                     // mobile
-                    document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+                    document.getElementById("mobile-toggle-theme").innerText = "· 黑夜"
                 }
                 window.localStorage &&
-                window.localStorage.setItem('theme', document.body.classList.contains('dark-theme') ? 'dark' : 'light',)
+                window.localStorage.setItem('theme', document.body.classList.contains('dark-theme') ? '黑夜' : '光亮',)
             })
         };
         _Blog.toggleTheme();

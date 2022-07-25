@@ -55,7 +55,7 @@
         // this function is used to check current theme before page loaded.
         (() => {
             const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
-            const isDark = currentTheme === 'dark';
+            const isDark = currentTheme === "· 黑夜";
             const pagebody = document.getElementsByTagName('body')[0]
             if (isDark) {
                 pagebody.classList.add('dark-theme');
@@ -93,11 +93,11 @@
         <div class="container">
             <div class="navbar-header">
                 <div>
-                    <a href="/">重楼的博客</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                    <a href="/">重楼的博客</a><a id="mobile-toggle-theme">&nbsp;'光亮'</a>
                 </div>
                 <div class="menu-toggle" onclick="mobileBtn()">&#9776; 菜单</div>
             </div>
-            <div class="menu" id="mobile-menu">
+            <div class="menu" id="mobile-menu"> 
                 
                     <a class="menu-item" href="/archives">帖子</a>
                 
@@ -145,8 +145,6 @@
                     <i style="background-size: 100%; background-image: url(/book/bookpicture2.jpg);"><a style="font-size: large; color:black;" href="/tags/%E5%85%8D%E8%B4%B9%E5%BB%BA%E7%AB%99/">免费建站<small style="color:aquamarine;">(1)</small></a></i>
                 
                     <i style="background-size: 100%; background-image: url(/book/bookpicture2.jpg);"><a style="font-size: large; color:black;" href="/tags/%E6%96%87%E4%BA%BA/">文人<small style="color:aquamarine;">(1)</small></a></i>
-                
-                    <i style="background-size: 100%; background-image: url(/book/bookpicture2.jpg);"><a style="font-size: large; color:black;" href="/tags/%E5%85%B3%E4%BA%8E/">关于<small style="color:aquamarine;">(1)</small></a></i>
                 
             </div>
         </div>

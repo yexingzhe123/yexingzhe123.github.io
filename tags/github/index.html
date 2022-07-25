@@ -55,7 +55,7 @@
         // this function is used to check current theme before page loaded.
         (() => {
             const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
-            const isDark = currentTheme === 'dark';
+            const isDark = currentTheme === "· 黑夜";
             const pagebody = document.getElementsByTagName('body')[0]
             if (isDark) {
                 pagebody.classList.add('dark-theme');
@@ -93,11 +93,11 @@
         <div class="container">
             <div class="navbar-header">
                 <div>
-                    <a href="/">重楼的博客</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                    <a href="/">重楼的博客</a><a id="mobile-toggle-theme">&nbsp;'光亮'</a>
                 </div>
                 <div class="menu-toggle" onclick="mobileBtn()">&#9776; 菜单</div>
             </div>
-            <div class="menu" id="mobile-menu">
+            <div class="menu" id="mobile-menu"> 
                 
                     <a class="menu-item" href="/archives">帖子</a>
                 
@@ -128,7 +128,7 @@
 
     
 <div class="container">
-    <div class="post-wrap tags" style="background-size: 100%; background-image: url(/book/bookpicture2.jpg);">
+    <div class="post-wrap tags" >
         <h2 class="post-title">-&nbsp;标签&nbsp;·&nbsp;github-</h2>
     </div>
     <div class="post-wrap archive" style="background-size: 100%; background-image: url(/book/bookpicture2.jpg);">
@@ -137,12 +137,12 @@
         
 
         
-            <article style="position:absolute;top: -10px;color: black;" class="archive-item">
+            <article style="position:absolute;top: 10px;left: -15px; color: black;" class="archive-item">
             <h2>2022</h2>
             </article>
         
         <div style="width:80%">
-        <article style="position:relative;"class="archive-item">
+        <article style="position:relative; top: 20px;"class="archive-item">
             <h3>
             <a style="color: black;" class="archive-item-link" href="/2022/07/24/%E4%BD%BF%E7%94%A8Hexo%E5%92%8Cgithub%E5%BB%BA%E7%AB%99/">使用Hexo和github建站</a>
             <i class="archive-item-date" style="color: black;">七月 24, 2022</i>
