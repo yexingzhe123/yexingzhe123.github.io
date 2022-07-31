@@ -1,6 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>关于博客</title>
+    <url>/2022/07/23/%E5%85%B3%E4%BA%8E%E5%8D%9A%E5%AE%A2/</url>
+    <content><![CDATA[<h1 id="博客介绍">博客介绍</h1>
+<h2 id="搭载">搭载</h2>
+
+<ul>
+<li><p>本博客采用以<a href="https://hexo.io/">hexo</a>为框架，<a href="https://github.com/Siricee/hexo-theme-Chic">Chic</a>为主题,进行设计，<br>搭载在网上的代码仓库上，特作此说明！！！</p>
+<h2 id="自我设计">自我设计</h2>
+</li>
+<li><p>因本人酷爱小说 ，最近读了一本小说，深受文天祥的《正气歌》和张载的《横渠四句》的影响，特在此将博客设计成 <strong>”以书为主材的形式“</strong><br>我非常崇拜他们，从这两部书里面，我读到了文人的 <em><strong>傲骨与使命</strong></em> 明白了文人应该被尊敬，也值得被尊敬，他们担起了整个人类文明的未来，<br>在我看来文人之所以傲骨，因为有人身负重任却默默付出而不被人所知，是因为 <em>他们孤身一人行走与和身兼重任的使命</em> 正所谓：</p>
+<blockquote>
+<p>小隐隐陵薮（sou），大隐隐朝市。<br>我们这个时代也有人们熟知的一些文人：毛泽东，邓稼先，斯大林，孙中山，周恩来。。。（因本人才疏学浅，所以知道的不多，书写本篇完全是有感而发）<br>所以我经常会感觉（现在的生活不是我们得来的，而使他们为我们争取来的。）特在此<strong>致敬文人，致敬先烈！！！</strong></p>
+</blockquote>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>关于博客</category>
+      </categories>
+      <tags>
+        <tag>文人</tag>
+        <tag>博客</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>使用Hexo和github建站</title>
     <url>/2022/07/24/%E4%BD%BF%E7%94%A8Hexo%E5%92%8Cgithub%E5%BB%BA%E7%AB%99/</url>
     <content><![CDATA[<h1 id="个人建站经历">个人建站经历：</h1>
@@ -56,7 +81,7 @@
 <li>hexo init 博客文件的名字（初始化hexo博客文件）。</li>
 <li>进入创建的博客文件夹，输入npm install （部署npm包）。</li>
 <li>输入：npm install hexo-deploer-git –save（部署插件，使hexo d 具备上传文件到仓库的功能）。</li>
-<li>配置博客设置_config.yml<br> deploy:<br> type: git（上传的方式）<br> repository: <a href="mailto:&#x67;&#105;&#116;&#x40;&#103;&#105;&#116;&#104;&#117;&#98;&#46;&#99;&#x6f;&#x6d;">&#x67;&#105;&#116;&#x40;&#103;&#105;&#116;&#104;&#117;&#98;&#46;&#99;&#x6f;&#x6d;</a>:个人github的仓库地址.git（上传的地址，例如：username&#x2F;username.github.io）<br> branch: master（上传的分支）</li>
+<li>配置博客设置_config.yml<br> deploy:<br> type: git（上传的方式）<br> repository: <a href="mailto:&#x67;&#x69;&#116;&#x40;&#x67;&#105;&#116;&#x68;&#x75;&#98;&#46;&#99;&#111;&#x6d;">&#x67;&#x69;&#116;&#x40;&#x67;&#105;&#116;&#x68;&#x75;&#98;&#46;&#99;&#111;&#x6d;</a>:个人github的仓库地址.git（上传的地址，例如：username&#x2F;username.github.io）<br> branch: master（上传的分支）</li>
 <li>常用代码：hexo clean（清理缓存），hexo g（原型：hexo generate 生成静态页面），hexo s（原型：hexo server 本地预览） hexo d（原型：hexo deploy 推送到github上）</li>
 </ol>
 ]]></content>
@@ -64,37 +89,12 @@
         <category>网站历程</category>
       </categories>
       <tags>
+        <tag>博客</tag>
         <tag>hexo</tag>
         <tag>github</tag>
         <tag>建站</tag>
         <tag>个人博客</tag>
-        <tag>博客</tag>
         <tag>免费建站</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>关于博客</title>
-    <url>/2022/07/23/%E5%85%B3%E4%BA%8E%E5%8D%9A%E5%AE%A2/</url>
-    <content><![CDATA[<h1 id="博客介绍">博客介绍</h1>
-<h2 id="搭载">搭载</h2>
-
-<ul>
-<li><p>本博客采用以<a href="https://hexo.io/">hexo</a>为框架，<a href="https://github.com/Siricee/hexo-theme-Chic">Chic</a>为主题,进行设计，<br>搭载在网上的代码仓库上，特作此说明！！！</p>
-<h2 id="自我设计">自我设计</h2>
-</li>
-<li><p>因本人酷爱小说 ，最近读了一本小说，深受文天祥的《正气歌》和张载的《横渠四句》的影响，特在此将博客设计成 <strong>”以书为主材的形式“</strong><br>我非常崇拜他们，从这两部书里面，我读到了文人的 <em><strong>傲骨与使命</strong></em> 明白了文人应该被尊敬，也值得被尊敬，他们担起了整个人类文明的未来，<br>在我看来文人之所以傲骨，因为有人身负重任却默默付出而不被人所知，是因为 <em>他们孤身一人行走与和身兼重任的使命</em> 正所谓：</p>
-<blockquote>
-<p>小隐隐陵薮（sou），大隐隐朝市。<br>我们这个时代也有人们熟知的一些文人：毛泽东，邓稼先，斯大林，孙中山，周恩来。。。（因本人才疏学浅，所以知道的不多，书写本篇完全是有感而发）<br>所以我经常会感觉（现在的生活不是我们得来的，而使他们为我们争取来的。）特在此<strong>致敬文人，致敬先烈！！！</strong></p>
-</blockquote>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>关于博客</category>
-      </categories>
-      <tags>
-        <tag>博客</tag>
-        <tag>文人</tag>
       </tags>
   </entry>
 </search>
