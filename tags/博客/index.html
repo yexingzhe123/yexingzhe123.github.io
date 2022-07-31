@@ -48,7 +48,8 @@
     
 
 
-<meta name="generator" content="Hexo 6.2.0"></head>
+<meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="重楼" type="application/atom+xml">
+</head>
 
 <body>
     <script>
@@ -75,6 +76,9 @@
         <div class="container">
             <div class="navbar-header header-logo"><a href="/">重楼的博客</a></div>
             <div class="menu navbar-right">
+                <a href="#" class="menu-item" role="button">
+                    <svg t="1658901906474" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="3708" width="25px" height="25px"><path d="M469.333333 768c-166.4 0-298.666667-132.266667-298.666666-298.666667s132.266667-298.666667 298.666666-298.666666 298.666667 132.266667 298.666667 298.666666-132.266667 298.666667-298.666667 298.666667z m0-85.333333c119.466667 0 213.333333-93.866667 213.333334-213.333334s-93.866667-213.333333-213.333334-213.333333-213.333333 93.866667-213.333333 213.333333 93.866667 213.333333 213.333333 213.333334z m251.733334 0l119.466666 119.466666-59.733333 59.733334-119.466667-119.466667 59.733334-59.733333z" fill="#444444" p-id="3709"></path></svg>
+                </a>
                 
                     <a class="menu-item" href="/archives">帖子</a>
                 
@@ -87,7 +91,31 @@
             </div>
         </div>
     </nav>
-
+<!--搜索
+    <div class="site-nav-right">
+        <div class="toggle popup-trigger" style="opacity: 1; top: 0px;">
+            <i class="fa fa-search fa-fw fa-lg">huhuds</i>
+        </div>
+      </div>
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                 placeholder="{{ __('search.placeholder') }}" spellcheck="false"
+                 type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container no-result">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+      -->
     
     <nav class="navbar-mobile" id="nav-mobile">
         <div class="container">
@@ -97,7 +125,10 @@
                 </div>
                 <div class="menu-toggle" onclick="mobileBtn()">&#9776; 菜单</div>
             </div>
-            <div class="menu" id="mobile-menu"> 
+            <div class="menu" id="mobile-menu">
+                <a href="#" class="menu-item" role="button">
+                    <svg t="1658901906474" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="3708" width="25px" height="25px"><path d="M469.333333 768c-166.4 0-298.666667-132.266667-298.666666-298.666667s132.266667-298.666667 298.666666-298.666666 298.666667 132.266667 298.666667 298.666666-132.266667 298.666667-298.666667 298.666667z m0-85.333333c119.466667 0 213.333333-93.866667 213.333334-213.333334s-93.866667-213.333333-213.333334-213.333333-213.333333 93.866667-213.333333 213.333333 93.866667 213.333333 213.333333 213.333334z m251.733334 0l119.466666 119.466666-59.733333 59.733334-119.466667-119.466667 59.733334-59.733333z" fill="#444444" p-id="3709"></path></svg>
+                </a> 
                 
                     <a class="menu-item" href="/archives">帖子</a>
                 
@@ -123,6 +154,187 @@
         }
     }
 </script>
+
+<!--搜索-->
+<script>
+    var searchFunc = function(path, search_id, content_id) {
+
+'use strict'; //使用严格模式
+
+$.ajax({
+
+url: path,
+
+dataType: "xml",
+
+success: function( xmlResponse ) {
+
+// 从xml中获取相应的标题等数据
+
+var datas = $( "entry", xmlResponse ).map(function() {
+
+return {
+
+title: $( "title", this ).text(),
+
+content: $("content",this).text(),
+
+url: $( "url" , this).text()
+
+};
+
+}).get();
+
+//ID选择器
+
+var $input = document.getElementById(search_id);
+
+var $resultContent = document.getElementById(content_id);
+
+$input.addEventListener('input', function(){
+
+var str='
+
+    ';
+
+var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+
+$resultContent.innerHTML = "";
+
+if (this.value.trim().length <= 0) {
+
+return;
+
+}
+
+// 本地搜索主要部分
+
+datas.forEach(function(data) {
+
+var isMatch = true;
+
+var content_index = [];
+
+var data_title = data.title.trim().toLowerCase();
+
+var data_content = data.content.trim().replace(/]+>/g,"").toLowerCase();
+
+var data_url = data.url;
+
+var index_title = -1;
+
+var index_content = -1;
+
+var first_occur = -1;
+
+// 只匹配非空文章
+
+if(data_title != '' && data_content != '') {
+
+keywords.forEach(function(keyword, i) {
+
+index_title = data_title.indexOf(keyword);
+
+index_content = data_content.indexOf(keyword);
+
+if( index_title < 0 && index_content < 0 ){
+
+isMatch = false;
+
+} else {
+
+if (index_content < 0) {
+
+index_content = 0;
+
+}
+
+if (i == 0) {
+
+first_occur = index_content;
+
+}
+
+}
+
+});
+
+}
+
+// 返回搜索结果
+
+if (isMatch) {
+
+//结果标签
+
+str += "
+"+ "> " + data_title +"";
+
+var content = data.content.trim().replace(/]+>/g,"");
+
+if (first_occur >= 0) {
+
+// 拿出含有搜索字的部分
+
+var start = first_occur - 6;
+
+var end = first_occur + 6;
+
+if(start < 0){
+
+start = 0;
+
+}
+
+if(start == 0){
+
+end = 10;
+
+}
+
+if(end > content.length){
+
+end = content.length;
+
+}
+
+var match_content = content.substr(start, end);
+
+// 列出搜索关键字，定义class加高亮
+
+keywords.forEach(function(keyword){
+
+var regS = new RegExp(keyword, "gi");
+
+match_content = match_content.replace(regS, ""+keyword+"");
+
+})
+
+str += "
+
+" + match_content +"...
+"
+
+}
+
+}
+
+})
+
+$resultContent.innerHTML = str;
+
+})
+
+}
+
+})
+
+};
+
+var path = "../search.xml";
+
+searchFunc(path, 'local-search-input', 'local-search-result');
+</script>
             <div class="main">
                 
 
@@ -147,6 +359,25 @@
             <a style="color: black;" class="archive-item-link" href="/2022/07/24/%E4%BD%BF%E7%94%A8Hexo%E5%92%8Cgithub%E5%BB%BA%E7%AB%99/">使用Hexo和github建站</a>
             <i class="archive-item-date" style="color: black;">七月 24, 2022</i>
             </h3>
+            <h4>
+            <div style="margin-top: 10px;">
+                <span class="post-time">
+                    <span class="post-meta-item-icon">
+                        <i class="fa fa-keyboard-o"></i>
+                        <span class="post-meta-item-text"> 字数统计：</span>
+                        <span class="post-count">579字</span>
+                    </span>
+                </span>
+                &nbsp;&nbsp;
+                <span class="post-time">
+                    <span class="post-meta-item-icon">
+                        <i class="fa fa-hourglass-half"></i>
+                        <span class="post-meta-item-text"> 阅读时长：</span>
+                        <span class="post-count">2分</span>
+                    </span>
+                </span>
+            </div>
+            </h4>
         </article>
         </div>
     
@@ -159,6 +390,25 @@
             <a style="color: black;" class="archive-item-link" href="/2022/07/23/%E5%85%B3%E4%BA%8E%E5%8D%9A%E5%AE%A2/">关于博客</a>
             <i class="archive-item-date" style="color: black;">七月 23, 2022</i>
             </h3>
+            <h4>
+            <div style="margin-top: 10px;">
+                <span class="post-time">
+                    <span class="post-meta-item-icon">
+                        <i class="fa fa-keyboard-o"></i>
+                        <span class="post-meta-item-text"> 字数统计：</span>
+                        <span class="post-count">315字</span>
+                    </span>
+                </span>
+                &nbsp;&nbsp;
+                <span class="post-time">
+                    <span class="post-meta-item-icon">
+                        <i class="fa fa-hourglass-half"></i>
+                        <span class="post-meta-item-text"> 阅读时长：</span>
+                        <span class="post-count">1分</span>
+                    </span>
+                </span>
+            </div>
+            </h4>
         </article>
         </div>
     
@@ -173,6 +423,24 @@
     <div class="copyright">
         <span>© 重楼 | 重楼的博客 | 由 <a href="https://hexo.io" target="_blank">Hexo</a>驱动 
         & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+        <br>
+        <i id="timeDate">载入天数...</i><i id="times">载入时分秒...</i>
+        <script>
+            var now = new Date();
+            function createtime(){
+                var grt = new Date("7/27/2022 06:00:00");//修改建站时间，格式：月/日/年 时：分：秒
+                now.setTime(now.getTime()+250);
+                days = (now - grt) / 1000 / 60 / 60 /24; dnum = Math.floor(days);
+                hours = (now - grt) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+                if(String(hnum).length ==1){hnum = "0" +hnum;} minutes = (now - grt) / 1000 / 60 -(24 * 60 * dnum) - (60 * hnum);
+                mnum = Math.floor(minutes);if(String(mnum).length ==1){mnum = "0" + mnum}
+                seconds = (now - grt) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+                snum = Math.round(seconds); if(String(snum).length ==1){snum = "0" + snum;}
+                document.getElementById("timeDate").innerHTML = "本站已安全运行"+dnum+"天";
+                document.getElementById("times").innerHTML = hnum + "小时" + mnum +"分" + snum +"秒";
+                        }
+        setInterval("createtime()",250);
+        </script>
     </div>
 </footer>
 

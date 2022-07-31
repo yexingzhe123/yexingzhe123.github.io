@@ -48,7 +48,8 @@
     
 
 
-<meta name="generator" content="Hexo 6.2.0"></head>
+<meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="重楼" type="application/atom+xml">
+</head>
 
 <body>
     <script>
@@ -75,6 +76,9 @@
         <div class="container">
             <div class="navbar-header header-logo"><a href="/">重楼的博客</a></div>
             <div class="menu navbar-right">
+                <a href="#" class="menu-item" role="button">
+                    <svg t="1658901906474" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="3708" width="25px" height="25px"><path d="M469.333333 768c-166.4 0-298.666667-132.266667-298.666666-298.666667s132.266667-298.666667 298.666666-298.666666 298.666667 132.266667 298.666667 298.666666-132.266667 298.666667-298.666667 298.666667z m0-85.333333c119.466667 0 213.333333-93.866667 213.333334-213.333334s-93.866667-213.333333-213.333334-213.333333-213.333333 93.866667-213.333333 213.333333 93.866667 213.333333 213.333333 213.333334z m251.733334 0l119.466666 119.466666-59.733333 59.733334-119.466667-119.466667 59.733334-59.733333z" fill="#444444" p-id="3709"></path></svg>
+                </a>
                 
                     <a class="menu-item" href="/archives">帖子</a>
                 
@@ -87,7 +91,31 @@
             </div>
         </div>
     </nav>
-
+<!--搜索
+    <div class="site-nav-right">
+        <div class="toggle popup-trigger" style="opacity: 1; top: 0px;">
+            <i class="fa fa-search fa-fw fa-lg">huhuds</i>
+        </div>
+      </div>
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                 placeholder="{{ __('search.placeholder') }}" spellcheck="false"
+                 type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container no-result">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+      -->
     
     <nav class="navbar-mobile" id="nav-mobile">
         <div class="container">
@@ -97,7 +125,10 @@
                 </div>
                 <div class="menu-toggle" onclick="mobileBtn()">&#9776; 菜单</div>
             </div>
-            <div class="menu" id="mobile-menu"> 
+            <div class="menu" id="mobile-menu">
+                <a href="#" class="menu-item" role="button">
+                    <svg t="1658901906474" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="3708" width="25px" height="25px"><path d="M469.333333 768c-166.4 0-298.666667-132.266667-298.666666-298.666667s132.266667-298.666667 298.666666-298.666666 298.666667 132.266667 298.666667 298.666666-132.266667 298.666667-298.666667 298.666667z m0-85.333333c119.466667 0 213.333333-93.866667 213.333334-213.333334s-93.866667-213.333333-213.333334-213.333333-213.333333 93.866667-213.333333 213.333333 93.866667 213.333333 213.333333 213.333334z m251.733334 0l119.466666 119.466666-59.733333 59.733334-119.466667-119.466667 59.733334-59.733333z" fill="#444444" p-id="3709"></path></svg>
+                </a> 
                 
                     <a class="menu-item" href="/archives">帖子</a>
                 
@@ -122,6 +153,187 @@
             mobileMenu.classList.add("active")
         }
     }
+</script>
+
+<!--搜索-->
+<script>
+    var searchFunc = function(path, search_id, content_id) {
+
+'use strict'; //使用严格模式
+
+$.ajax({
+
+url: path,
+
+dataType: "xml",
+
+success: function( xmlResponse ) {
+
+// 从xml中获取相应的标题等数据
+
+var datas = $( "entry", xmlResponse ).map(function() {
+
+return {
+
+title: $( "title", this ).text(),
+
+content: $("content",this).text(),
+
+url: $( "url" , this).text()
+
+};
+
+}).get();
+
+//ID选择器
+
+var $input = document.getElementById(search_id);
+
+var $resultContent = document.getElementById(content_id);
+
+$input.addEventListener('input', function(){
+
+var str='
+
+    ';
+
+var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+
+$resultContent.innerHTML = "";
+
+if (this.value.trim().length <= 0) {
+
+return;
+
+}
+
+// 本地搜索主要部分
+
+datas.forEach(function(data) {
+
+var isMatch = true;
+
+var content_index = [];
+
+var data_title = data.title.trim().toLowerCase();
+
+var data_content = data.content.trim().replace(/]+>/g,"").toLowerCase();
+
+var data_url = data.url;
+
+var index_title = -1;
+
+var index_content = -1;
+
+var first_occur = -1;
+
+// 只匹配非空文章
+
+if(data_title != '' && data_content != '') {
+
+keywords.forEach(function(keyword, i) {
+
+index_title = data_title.indexOf(keyword);
+
+index_content = data_content.indexOf(keyword);
+
+if( index_title < 0 && index_content < 0 ){
+
+isMatch = false;
+
+} else {
+
+if (index_content < 0) {
+
+index_content = 0;
+
+}
+
+if (i == 0) {
+
+first_occur = index_content;
+
+}
+
+}
+
+});
+
+}
+
+// 返回搜索结果
+
+if (isMatch) {
+
+//结果标签
+
+str += "
+"+ "> " + data_title +"";
+
+var content = data.content.trim().replace(/]+>/g,"");
+
+if (first_occur >= 0) {
+
+// 拿出含有搜索字的部分
+
+var start = first_occur - 6;
+
+var end = first_occur + 6;
+
+if(start < 0){
+
+start = 0;
+
+}
+
+if(start == 0){
+
+end = 10;
+
+}
+
+if(end > content.length){
+
+end = content.length;
+
+}
+
+var match_content = content.substr(start, end);
+
+// 列出搜索关键字，定义class加高亮
+
+keywords.forEach(function(keyword){
+
+var regS = new RegExp(keyword, "gi");
+
+match_content = match_content.replace(regS, ""+keyword+"");
+
+})
+
+str += "
+
+" + match_content +"...
+"
+
+}
+
+}
+
+})
+
+$resultContent.innerHTML = str;
+
+})
+
+}
+
+})
+
+};
+
+var path = "../search.xml";
+
+searchFunc(path, 'local-search-input', 'local-search-result');
 </script>
             <div class="main">
                 <div class="container">
@@ -218,6 +430,23 @@
                     
                 </div>
             
+            <div style="margin-top: 10px;">
+                <span class="post-time">
+                    <span class="post-meta-item-icon">
+                        <i class="fa fa-keyboard-o"></i>
+                        <span class="post-meta-item-text"> 字数统计：</span>
+                        <span class="post-count">579字</span>
+                    </span>
+                </span>
+                &nbsp;&nbsp;
+                <span class="post-time">
+                    <span class="post-meta-item-icon">
+                        <i class="fa fa-hourglass-half"></i>
+                        <span class="post-meta-item-text"> 阅读时长：</span>
+                        <span class="post-count">2分</span>
+                    </span>
+                </span>
+            </div>
         </header>
 
         <div class="post-content">
@@ -274,11 +503,23 @@
 <li>hexo init 博客文件的名字（初始化hexo博客文件）。</li>
 <li>进入创建的博客文件夹，输入npm install （部署npm包）。</li>
 <li>输入：npm install hexo-deploer-git –save（部署插件，使hexo d 具备上传文件到仓库的功能）。</li>
-<li>配置博客设置_config.yml<br> deploy:<br> type: git（上传的方式）<br> repository: <a href="mailto:&#103;&#x69;&#116;&#64;&#103;&#105;&#116;&#x68;&#x75;&#x62;&#x2e;&#99;&#x6f;&#x6d;">&#103;&#x69;&#116;&#64;&#103;&#105;&#116;&#x68;&#x75;&#x62;&#x2e;&#99;&#x6f;&#x6d;</a>:个人github的仓库地址.git（上传的地址，例如：username&#x2F;username.github.io）<br> branch: master（上传的分支）</li>
+<li>配置博客设置_config.yml<br> deploy:<br> type: git（上传的方式）<br> repository: <a href="mailto:&#x67;&#105;&#116;&#x40;&#103;&#105;&#116;&#104;&#117;&#98;&#46;&#99;&#x6f;&#x6d;">&#x67;&#105;&#116;&#x40;&#103;&#105;&#116;&#104;&#117;&#98;&#46;&#99;&#x6f;&#x6d;</a>:个人github的仓库地址.git（上传的地址，例如：username&#x2F;username.github.io）<br> branch: master（上传的分支）</li>
 <li>常用代码：hexo clean（清理缓存），hexo g（原型：hexo generate 生成静态页面），hexo s（原型：hexo server 本地预览） hexo d（原型：hexo deploy 推送到github上）</li>
 </ol>
 
         </div>
+
+        <hr />
+
+        <center>
+            <a  target="_blank" class="link-item" title="AliPay" href="/AliPay">
+                <svg t="1658915984912" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="3917" width="100px" height="45px"><path d="M653.8 615.5c70.2-125.4 95.7-244.6 95.7-244.6H513.4v-87.8h280.8v-37.6H513.4V113.8H385.8v131.7H130.5v37.6h255.3v87.8h-217v37.6h440.4c0 6.3 0 6.3-6.4 12.5 0 43.9-31.9 106.6-57.4 156.8-325.5-125.4-421.2-50.2-446.8-37.6-217 150.5-12.8 338.6 19.1 332.4 229.8 50.2 376.5-43.9 478.7-163.1 6.4 6.3 12.8 6.3 19.1 6.3 70.2 37.6 408.5 194.4 408.5 194.4V722.1c-51.1 0-236.1-62.7-370.2-106.6z m-165.9 56.4c-159.6 200.7-351 138-382.9 125.4-76.6-18.8-102.1-156.7-6.4-200.6 159.6-50.2 300 6.3 402.1 56.4-6.4 12.5-12.8 18.8-12.8 18.8z" p-id="3918" fill="#1296db"></path></svg>
+            </a>
+
+            <a target="_blank" href="mailto:yexingzhe123@outlook.com" title="Email" >
+                <svg t="1658916218491" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5278" width="100px" height="45px"><path d="M143.36 184.32h737.28a61.44 61.44 0 0 1 61.44 61.44v532.48a61.44 61.44 0 0 1-61.44 61.44H143.36a61.44 61.44 0 0 1-61.44-61.44V245.76a61.44 61.44 0 0 1 61.44-61.44z m40.96 81.92a20.48 20.48 0 0 0-20.48 20.48v450.56a20.48 20.48 0 0 0 20.48 20.48h655.36a20.48 20.48 0 0 0 20.48-20.48V286.72a20.48 20.48 0 0 0-20.48-20.48H184.32z" fill="#1296db" p-id="5279"></path><path d="M499.712 513.82272l372.5312-237.1584 43.99104 69.12-383.50848 244.14208a61.44 61.44 0 0 1-66.00704 0L83.21024 345.78432l43.99104-69.12 372.5312 237.1584z" fill="#1296db" p-id="5280"></path></svg>
+            </a>
+        </center>
 
         
             <section class="post-copyright">
@@ -347,6 +588,24 @@
     <div class="copyright">
         <span>© 重楼 | 重楼的博客 | 由 <a href="https://hexo.io" target="_blank">Hexo</a>驱动 
         & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+        <br>
+        <i id="timeDate">载入天数...</i><i id="times">载入时分秒...</i>
+        <script>
+            var now = new Date();
+            function createtime(){
+                var grt = new Date("7/27/2022 06:00:00");//修改建站时间，格式：月/日/年 时：分：秒
+                now.setTime(now.getTime()+250);
+                days = (now - grt) / 1000 / 60 / 60 /24; dnum = Math.floor(days);
+                hours = (now - grt) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+                if(String(hnum).length ==1){hnum = "0" +hnum;} minutes = (now - grt) / 1000 / 60 -(24 * 60 * dnum) - (60 * hnum);
+                mnum = Math.floor(minutes);if(String(mnum).length ==1){mnum = "0" + mnum}
+                seconds = (now - grt) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+                snum = Math.round(seconds); if(String(snum).length ==1){snum = "0" + snum;}
+                document.getElementById("timeDate").innerHTML = "本站已安全运行"+dnum+"天";
+                document.getElementById("times").innerHTML = hnum + "小时" + mnum +"分" + snum +"秒";
+                        }
+        setInterval("createtime()",250);
+        </script>
     </div>
 </footer>
 
